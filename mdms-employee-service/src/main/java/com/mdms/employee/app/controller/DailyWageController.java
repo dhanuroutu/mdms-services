@@ -59,7 +59,7 @@ public class DailyWageController {
 	@PutMapping("/dailyWages/{id}")
 	public ResponseEntity<DailyWage> updateDailyWage(@PathVariable(value = "id") Integer DailyWageId,
 			@Validated @RequestBody DailyWage dailyWagedetails) throws ResourceNotFoundException {
-		final DailyWage updatedDailyWage = dailyWageService.updateDailyWage(DailyWageId, dailyWagedetails);
+		DailyWage updatedDailyWage = dailyWageService.updateDailyWage(DailyWageId, dailyWagedetails);
 		return ResponseEntity.ok(updatedDailyWage);
 	}
 

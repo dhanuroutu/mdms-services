@@ -39,6 +39,10 @@ public class DailyWageServiceImpl implements DailyWageService {
 		DailyWage dailyWage = dailyWageRepository.findById(dailyWageId)
 				.orElseThrow(() -> new ResourceNotFoundException("Daily Wage not found for this id :: " + dailyWageId));
 		
+		dailyWage.setDate(dailyWagedetails.getDate());
+		dailyWage.setNumOfUnits(dailyWagedetails.getNumOfUnits());
+		dailyWage.setEmployeeId(dailyWagedetails.getEmployeeId());
+		
 		return dailyWageRepository.save(dailyWage);
 	}
 
